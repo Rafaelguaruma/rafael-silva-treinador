@@ -56,6 +56,7 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
+    position:relative;
     display:flex;align-items:center;justify-content:space-between;
     padding:16px 24px;max-width:1180px;margin:0 auto;
   }
@@ -65,6 +66,39 @@
     letter-spacing:0.5px;
   }
   .logo span{color:var(--orange);}
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    font-size:14px;
+    font-weight:600;
+  }
+  .nav-links a{
+    color:var(--muted);
+    transition:color .15s ease;
+    white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--orange);}
+  .nav-scroll{
+    display:none;
+    gap:24px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding:0 24px 12px;
+    border-bottom:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.5px;
+  }
+  .nav-scroll::-webkit-scrollbar{display:none;}
+  .nav-scroll a{
+    color:var(--muted);
+    white-space:nowrap;
+    flex:0 0 auto;
+    text-transform:uppercase;
+  }
+  .nav-scroll a:hover, .nav-scroll a:active{color:var(--orange);}
   .nav-cta{
     background:var(--orange);
     color:#0e0f10;
@@ -184,7 +218,7 @@
     margin-bottom:14px;
     display:block;
   }
-  section{padding:96px 0;}
+  section{padding:96px 0;scroll-margin-top:76px;}
   .section-title{
     font-size:clamp(32px,5vw,54px);
     max-width:640px;
@@ -449,6 +483,9 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-scroll{display:flex;}
+    section{scroll-margin-top:112px;}
     .historia{grid-template-columns:1fr;gap:36px;}
     .metodos-grid{grid-template-columns:1fr;}
     .videos-grid{grid-template-columns:1fr;}
@@ -459,7 +496,7 @@
     section{padding:64px 0;}
   }
   @media (max-width:480px){
-    .hero-inner{padding:110px 20px 48px;}
+    .hero-inner{padding:150px 20px 48px;}
     .nav-cta span{display:none;}
   }
 
@@ -475,10 +512,24 @@
 <header>
   <div class="nav-inner">
     <div class="logo">RAFAEL<span>.</span>SILVA</div>
+    <nav class="nav-links">
+      <a href="#historia">História</a>
+      <a href="#metodos">Métodos</a>
+      <a href="#prova">Provas</a>
+      <a href="#videos">Vídeos</a>
+      <a href="#planos">Planos</a>
+    </nav>
     <a class="nav-cta" href="https://wa.me/5591988051099" target="_blank" rel="noopener">
       <span>Falar no WhatsApp</span>
     </a>
   </div>
+  <nav class="nav-scroll mono">
+    <a href="#historia">HISTÓRIA</a>
+    <a href="#metodos">MÉTODOS</a>
+    <a href="#prova">PROVAS</a>
+    <a href="#videos">VÍDEOS</a>
+    <a href="#planos">PLANOS</a>
+  </nav>
 </header>
 
 <!-- ===== HERO ===== -->
